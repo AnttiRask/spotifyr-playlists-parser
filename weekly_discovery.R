@@ -5,13 +5,17 @@ library(readr)
 library(spotifyr)
 library(stringr)
 
-source("secret.R")
+# source("secret.R")
 
 # Get the SpotifyAPI Access Token ----
-Sys.setenv(SPOTIFY_CLIENT_ID     = .SPOTIFY_CLIENT_ID)
-Sys.setenv(SPOTIFY_CLIENT_SECRET = .SPOTIFY_CLIENT_SECRET)
+# Sys.setenv(SPOTIFY_CLIENT_ID     = .SPOTIFY_CLIENT_ID)
+# Sys.setenv(SPOTIFY_CLIENT_SECRET = .SPOTIFY_CLIENT_SECRET)
+# access_token <- get_spotify_access_token()
 
-access_token <- get_spotify_access_token()
+access_token <- get_spotify_access_token(
+    client_id     = Sys.getenv("SPOTIFY_CLIENT_ID"),
+    client_secret = Sys.getenv("SPOTIFY_CLIENT_SECRET")
+)
 
 # Get the playlist ----
 playlist <- get_playlist_tracks(
