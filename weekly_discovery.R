@@ -1,16 +1,10 @@
 # Load libraries
+install.packages("spotifyr")
 library(dplyr)
 library(lubridate)
 library(readr)
 library(spotifyr)
 library(stringr)
-
-# source("secret.R")
-
-# Get the SpotifyAPI Access Token ----
-# Sys.setenv(SPOTIFY_CLIENT_ID     = .SPOTIFY_CLIENT_ID)
-# Sys.setenv(SPOTIFY_CLIENT_SECRET = .SPOTIFY_CLIENT_SECRET)
-# access_token <- get_spotify_access_token()
 
 access_token <- get_spotify_access_token(
     client_id     = Sys.getenv("SPOTIFY_CLIENT_ID"),
