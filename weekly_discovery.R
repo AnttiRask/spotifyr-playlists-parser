@@ -1,11 +1,16 @@
 # Load libraries
-install.packages("spotifyr")
 library(dplyr)
 library(lubridate)
 library(readr)
 library(spotifyr)
 library(stringr)
 
+# You only need to change this (in addition to saving Spotify Client ID and Secret
+# as GitHub secrets) to make the code work for you
+.playlist_id <- "37i9dQZEVXcEU5dKzCMv5W"
+
+
+# Get the access token ----
 access_token <- get_spotify_access_token(
     client_id     = Sys.getenv("SPOTIFY_CLIENT_ID"),
     client_secret = Sys.getenv("SPOTIFY_CLIENT_SECRET")
@@ -13,7 +18,7 @@ access_token <- get_spotify_access_token(
 
 # Get the playlist ----
 playlist <- get_playlist_tracks(
-    playlist_id   = "37i9dQZEVXcEU5dKzCMv5W",
+    playlist_id   = .playlist_id,
     authorization = access_token
 ) %>% as_tibble()
 
